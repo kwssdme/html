@@ -9,7 +9,12 @@
     .center-title {
         text-align: center;
         font-size: 200%;
-        background-color: white;
+        transition: background 2s;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    body{
+        background-color: rgb(36, 31, 31);
     }
     audio {
         width: 70%;
@@ -22,5 +27,22 @@
             <source src="cage.mp3" >
         </audio>
     </div>
+    <script>
+        function titlecolor() {
+            const colors = '0123456789ABCDEF'
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += colors[Math.floor(Math.random() * 16)];
+            }
+        return color
+    }
+        function updatetitltcolor() {
+            const Title = document.querySelector(".center-title");
+            const color = titlecolor();
+            Title.style.backgroundColor = color;
+    }
+    setInterval(updatetitltcolor, 2000);
+    updatetitltcolor();
+    </script>
 </body>
 </html>
